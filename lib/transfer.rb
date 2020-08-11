@@ -8,6 +8,7 @@ def initialize(sender, reciever, amount)
   @reciever = reciever
   @status = "pending"
   @amount = amount
+  @@all << self
 end
 
 def valid?
@@ -30,6 +31,8 @@ def execute_transaction
     end
   end
 end
+
+def 
 
 
 
