@@ -38,6 +38,9 @@ def reverse_transfer(sender, reciever)
     reciever.balance = reciever.balance - self.amount
     sender.balance = sender.balance + self.amount
     self.status = "reversed"
+  end
+end
+end
 
 
 
