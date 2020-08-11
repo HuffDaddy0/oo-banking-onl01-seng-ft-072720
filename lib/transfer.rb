@@ -20,7 +20,7 @@ def valid?
 end
 
 def execute_transaction
-  if self.valid?
+  if valid?
     if @sender.balance > amount && self.status == "pending"
       @sender.balance = @sender.balance - amount
       @receiver.balance = @receiver.balance + amount
