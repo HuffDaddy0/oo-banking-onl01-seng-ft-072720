@@ -40,7 +40,6 @@ def reverse_transfer(sender, reciever)
     self.status = "reversed"
   end
 end
-end
 
 
 
