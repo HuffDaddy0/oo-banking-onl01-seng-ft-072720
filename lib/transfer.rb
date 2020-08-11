@@ -12,7 +12,7 @@ def initialize(sender, receiver, amount)
 end
 
 def valid?
-  if self.receiver.valid? && self.sender.valid?
+  if @receiver.valid? && @sender.valid?
     true
   else
     false
