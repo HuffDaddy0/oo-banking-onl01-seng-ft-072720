@@ -1,18 +1,18 @@
 class Transfer
   # your code here
   attr_accessor :status
-  attr_reader :sender, :reciever, :amount
+  attr_reader :sender, :receiver, :amount
 @@all = []
-def initialize(sender, reciever, amount)
+def initialize(sender, receiver, amount)
   @sender = sender
-  @reciever = reciever
+  @receiver = receiver
   @status = "pending"
   @amount = amount
   @@all << self
 end
 
 def valid?
-  if self.reciever.valid? && self.sender.valid?
+  if self.receiver.valid? && self.sender.valid?
     true
   else
     false
@@ -23,7 +23,7 @@ def execute_transaction
   if self.valid?
     if @sender.balance > amount && self.status == "pending"
       @sender.balance = @sender.balance - amount
-      @reciever.balance = @reciever.balance + amount
+      @receiver.balance = @receiver.balance + amount
       self.status = "complete"
     else
       self.status = "rejected"
@@ -33,9 +33,9 @@ def execute_transaction
 end
 
 def reverse_transfer
-# tran = Transfer.all.find {|transfer| transfer.sender == sender && transfer.reciever == reciever}
+# tran = Transfer.all.find {|transfer| transfer.sender == sender && transfer.receiver == receiver}
   if self.status = "complete"
-    self.reciever.balance = reciever.balance - self.amount
+    self.receiver.balance = receiver.balance - self.amount
     self.sender.balance = sender.balance + self.amount
     self.status = "reversed"
   end
