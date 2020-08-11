@@ -21,9 +21,9 @@ end
 
 def execute_transaction
   if self.valid?
-    if sender.balance > amount && self.status == "pending"
-      sender.balance = sender.balance - amount
-      reciever.balance = reciever.balance + amount
+    if @sender.balance > amount && self.status == "pending"
+      @sender.balance = @sender.balance - amount
+      @reciever.balance = @reciever.balance + amount
       self.status = "complete"
     else
       self.status = "rejected"
