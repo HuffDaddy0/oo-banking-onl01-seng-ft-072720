@@ -33,10 +33,9 @@ def execute_transaction
 end
 
 def reverse_transfer
-# tran = Transfer.all.find {|transfer| transfer.sender == sender && transfer.receiver == receiver}
   if self.status = "complete"
-    self.receiver.balance = receiver.balance - self.amount
-    self.sender.balance = sender.balance + self.amount
+    self.receiver.balance = @receiver.balance - self.amount
+    self.sender.balance = @sender.balance + self.amount
     self.status = "reversed"
   end
 end
