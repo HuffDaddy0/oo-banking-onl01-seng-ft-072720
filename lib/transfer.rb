@@ -39,7 +39,7 @@ def execute_transaction
 end
 
 def reverse_transfer
-  if self.status = "complete"
+  if self.status == "complete"
     # binding.pry
     @receiver.balance = @receiver.balance - @amount
     @sender.balance = @sender.balance + @amount
